@@ -3,6 +3,8 @@ import { BrowserRouter,Routes, Route } from "react-router-dom";
 import Announcement from './Views/Announcement2'
 import Navbar from './Components/Navbar'
 import "./App.css";
+import Teacher from "./Views/Teacher";
+import AllTeachers from "./Views/AllTeachers";
 
 function App() {
   return (
@@ -25,6 +27,14 @@ function App() {
           <Route 
             path={"/annoucement"}
             element={<Announcement/>}
+          />
+          <Route 
+            path={"/teacher/add"}
+            element={<Teacher/>}
+          />
+          <Route 
+            path={"/teachers"}
+            element={<AllTeachers/>}
           />
           
         </Routes>
