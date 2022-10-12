@@ -6,15 +6,16 @@
     
 // }
 import React, {Component, Fragment} from 'react'
-import { Card, Grid, TextField, Typography} from "@mui/material";
+import { Button, Card, Grid, TextField, Typography} from "@mui/material";
 import {Box, spacing} from "@mui/system"
+import SendIcon from '@mui/icons-material/Send';
 
 class Announcement extends Component {
 
     constructor(props: {} | Readonly<{}>){
         super(props)
         this.state = {
-            eader:null,
+            subject:null,
             description:null
         }
     }
@@ -29,20 +30,28 @@ class Announcement extends Component {
                             sm={12}
                             md={12}
                             lg={12}
+                            display='flex'
+                            justifyContent='center'
                         >
-                            <Typography variant="h5" sx={{p:2}}>Annoucement</Typography>
+                            <Typography 
+                                variant="h4" sx={{pt:10}} 
+                            >
+                                Annoucement
+                            </Typography>
                             <Grid
                                 xs={12}
                                 sm={12}
                                 md={12}
                                 lg={12}
                                 item
+                                display='flex'
+                                justifyContent='center'
                             >
                                 <TextField 
-                                    id="header"
-                                    label="Header"
-                                    // value={this.state.Header} 
-                                    sx={{m:5, width:'30%'}}
+                                    id="subject"
+                                    label="Subject"
+                                    // value={this.state.subject} 
+                                    sx={{m:5, width:'40%'}}
                                     size="small"
                                 />     
                             </Grid>   
@@ -53,18 +62,38 @@ class Announcement extends Component {
                                 md={12}
                                 lg={12}
                                 item
+                                display='flex'
+                                justifyContent='center'
                             >
                                 <TextField 
-                                    id="description"
-                                    label="Description"
-                                    // value={this.state.description} 
+                                    id="bodyText"
+                                    label="Body"
+                                    // value={this.state.bodyText} 
                                     variant="outlined" 
                                     multiline
                                     rows={5}
-                                    sx={{m:5, width:'30%'}}
+                                    sx={{m:5, width:'40%'}}
                                 />     
                             </Grid>   
-                            
+                            <Grid
+                                item
+                                xs={12}
+                                sm={12}
+                                md={12}
+                                lg={12}
+                                sx={{p:5}}
+                                display='flex'
+                                justifyContent='center'
+                            >
+                                <Button 
+                                    variant="contained"
+                                    color="error"
+                                    type="submit"
+                                    endIcon={<SendIcon />}
+                                >
+                                    Send
+                                </Button>
+                            </Grid>
                         </Grid>    
                     </Card>
                 </Box>

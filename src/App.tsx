@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import { BrowserRouter,Routes, Route } from "react-router-dom";
-import Announcement from './Views/Announcement2'
+import Announcement from './Views/Announcement'
 import Navbar from './Components/Navbar'
 import "./App.css";
 import Teacher from "./Views/Teacher";
@@ -25,7 +25,7 @@ function App() {
         <Navbar/>
         <Routes>
           <Route 
-            path={"/annoucement"}
+            path={"/announcement"}
             element={<Announcement/>}
           />
           <Route 
