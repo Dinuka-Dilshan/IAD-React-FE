@@ -3,8 +3,9 @@ import { BrowserRouter,Routes, Route } from "react-router-dom";
 import Announcement from './Views/Announcement'
 import Navbar from './Components/Navbar'
 import "./App.css";
-import Teacher from "./Views/Teacher";
-import AllTeachers from "./Views/AllTeachers";
+// import Teacher from "./Views/Teacher";
+// import AllTeachers from "./Views/AllTeachers";
+// import Login from "./Views/Login";
 
 function App() {
   return (
@@ -28,7 +29,7 @@ function App() {
             path={"/announcement"}
             element={<Announcement/>}
           />
-          <Route 
+          {/* <Route 
             path={"/teacher/add"}
             element={<Teacher/>}
           />
@@ -36,7 +37,11 @@ function App() {
             path={"/teachers"}
             element={<AllTeachers/>}
           />
-          
+          <Route 
+            path={"/"}
+            element={<Login/>}
+          />
+           */}
         </Routes>
       </BrowserRouter>
   );

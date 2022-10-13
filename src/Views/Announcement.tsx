@@ -16,23 +16,28 @@ interface AnnouncementState {
  
 class Announcement extends React.Component<AnnouncementProps, AnnouncementState> {
     state: AnnouncementState = {
-        subject : 'sdf',
-        bodyText: 'sdfsd'  
+        subject : '',
+        bodyText: ''  
     }
 
     handleClick = async (e: React.FormEvent) => {
         e.preventDefault()
-        const announcement = {subject:this.state.subject,text:this.state.bodyText, toEmail:'avish.rodrigo11@gmail.com'}
-        console.log(announcement)
+        if (this.state.subject !== '' && this.state.bodyText){
+            const announcement = {subject:this.state.subject,text:this.state.bodyText, toEmail:'avish.rodrigo11@gmail.com'}
 
-        await fetch("http://localhost:8080/teacher/announcement",{
-            method: "POST",
-            headers:{"Content-Type": "application/json"},
-            body:JSON.stringify(announcement)
-        }).then(()=>{
-            this.setState({subject:''})
-            this.setState({bodyText:''})
-        })
+            console.log(announcement)
+    
+            await fetch("http://localhost:8080/teacher/announcement",{
+                method: "POST",
+                headers:{"Content-Type": "application/json"},
+                body:JSON.stringify(announcement)
+            }).then(()=>{
+                this.setState({subject:''})
+                this.setState({bodyText:''})
+            })
+        }else{
+            alert('Enter subject & emailbody')
+        }
     }
 
     render() { 
@@ -70,7 +75,8 @@ class Announcement extends React.Component<AnnouncementProps, AnnouncementState>
                                     onChange={(e)=>this.setState({subject:e.target.value})}
                                     sx={{m:5, width:'40%'}}
                                     size="small"
-                                    />     
+                                    required
+                                />     
                             </Grid>   
                             
                             <Grid
@@ -91,6 +97,7 @@ class Announcement extends React.Component<AnnouncementProps, AnnouncementState>
                                     multiline
                                     rows={5}
                                     sx={{m:5, width:'40%'}}
+                                    required
                                 />     
                             </Grid>   
                             <Grid
