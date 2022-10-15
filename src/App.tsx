@@ -3,6 +3,7 @@ import { BrowserRouter,Routes, Route } from "react-router-dom";
 import Announcement from './Views/Announcement'
 import Navbar from './Components/Navbar'
 import "./App.css";
+import RegisterStudent from "./Views/RegisterStudent";
 // import Teacher from "./Views/Teacher";
 // import AllTeachers from "./Views/AllTeachers";
 // import Login from "./Views/Login";
@@ -29,19 +30,19 @@ function App() {
             path={"/announcement"}
             element={<Announcement/>}
           />
-          {/* <Route 
-            path={"/teacher/add"}
-            element={<Teacher/>}
-          />
           <Route 
+            path={"/student/register"}
+            element={<RegisterStudent/>}
+          />
+          {/* <Route 
             path={"/teachers"}
             element={<AllTeachers/>}
-          />
-          <Route 
+          /> */}
+          {/* <Route 
             path={"/"}
             element={<Login/>}
-          />
-           */}
+          /> */}
+          
         </Routes>
       </BrowserRouter>
   );

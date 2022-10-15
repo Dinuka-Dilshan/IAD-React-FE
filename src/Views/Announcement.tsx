@@ -23,7 +23,7 @@ class Announcement extends React.Component<AnnouncementProps, AnnouncementState>
     handleClick = async (e: React.FormEvent) => {
         e.preventDefault()
         if (this.state.subject !== '' && this.state.bodyText){
-            const announcement = {subject:this.state.subject,text:this.state.bodyText, toEmail:'avish.rodrigo11@gmail.com'}
+            const announcement = {subject:this.state.subject,text:this.state.bodyText, toEmail:'sajee.thamanga@gmail.com'}
 
             console.log(announcement)
     
