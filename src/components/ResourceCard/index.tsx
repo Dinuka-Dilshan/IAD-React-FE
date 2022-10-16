@@ -15,6 +15,7 @@ const ResourceCard: React.FC<Props> = ({ name, addedOn, link }) => {
       bgcolor={"primary.main"}
       color={"white"}
       borderRadius="1rem"
+      my={'2rem'}
     >
       <Grid item xs={6}>
         <Typography>{name}</Typography>

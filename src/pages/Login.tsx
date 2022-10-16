@@ -74,7 +74,7 @@ const Login = () => {
           Login
         </Typography>
         {misMatch && (
-          <Typography color={"red"}>Username or Password is Error</Typography>
+          <Typography color={"red"}>Username or Password is Incorrect!</Typography>
         )}
         <Box mt="1rem">
           <TextField

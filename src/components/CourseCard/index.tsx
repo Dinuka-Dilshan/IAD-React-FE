@@ -10,9 +10,10 @@ interface Props {
   description: string;
   id: number;
   type: "Enrolled" | "NEW";
+  image: string;
 }
 
-const CourseCard: React.FC<Props> = ({ title, description, id, type }) => {
+const CourseCard: React.FC<Props> = ({ title, description, id, type ,image}) => {
   const navigate = useNavigate();
   const { data, fetchData, isFetching, isError } = useFetch();
   const { user } = useUser();
@@ -50,7 +51,7 @@ const CourseCard: React.FC<Props> = ({ title, description, id, type }) => {
           borderTopLeftRadius: "0.5rem",
           borderBottomLeftRadius: "0.5rem",
           background:
-            "url(https://www.europassberlin.com/wp-content/uploads/2020/11/Progetto-senza-titolo-8-1-1440x900.jpg)",
+            `url(${image})`,
           backgroundSize: "cover",
         }}
       ></Box>
