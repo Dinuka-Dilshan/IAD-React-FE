@@ -9,8 +9,6 @@ const AvailableCourses = () => {
   const { data, fetchData, isFetching, isError } = useFetch();
   const { user } = useUser();
 
-  
-
   useEffect(() => {
     const fetch = async () => {
       await fetchData(`/student/notEnrolledCourses/${user.studentID}`, {
@@ -19,8 +17,6 @@ const AvailableCourses = () => {
     };
     fetch();
   }, [user]);
-
- 
 
   return (
     <Box display={"flex"} justifyContent="center">
@@ -31,6 +27,7 @@ const AvailableCourses = () => {
           data.map((course: any, id: number) => {
             return (
               <CourseCard
+                image={course.image}
                 id={course.courseID}
                 title={course.courseName}
                 description={course.description}

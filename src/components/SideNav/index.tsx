@@ -1,8 +1,19 @@
-import { Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import SideNavItem from "./SideNavItem";
+import LogoutIcon from "@mui/icons-material/Logout";
+import { useUser } from "../../context/UserProvider";
+import { useNavigate } from "react-router-dom";
 
 const SideNav = () => {
+  const { setUser } = useUser();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    setUser({});
+    navigate("/");
+  };
+
   return (
     <Box
       width={"100%"}
@@ -33,6 +44,16 @@ const SideNav = () => {
         />
         <SideNavItem to="/dashboard/profile" title="Profile" icon="Profile" />
       </Box>
+      <Button
+        onClick={handleLogout}
+        variant="outlined"
+        sx={{ color: "white", mt: "15rem", pl: "4rem", fontSize: "1.1rem" }}
+      >
+        <LogoutIcon fontSize="large" />{" "}
+        <Typography fontWeight={500} ml={"1rem"}>
+          Logout
+        </Typography>
+      </Button>
     </Box>
   );
 };
