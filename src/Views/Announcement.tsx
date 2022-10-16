@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react'
+import React, {Component, Fragment, useEffect} from 'react'
 import { Button, Card, Grid, TextField, Typography} from "@mui/material";
 import {Box, spacing} from "@mui/system"
 import SendIcon from '@mui/icons-material/Send';
@@ -7,14 +7,16 @@ import { string } from 'yup';
 interface AnnouncementProps {
     
 }
- 
+
 interface AnnouncementState {
     bodyText: unknown;
     subject: unknown;
     toEmail : Array<String>;
     // receivers: unknown;
 }
- 
+
+
+
 class Announcement extends React.Component<AnnouncementProps, AnnouncementState> {
     state: AnnouncementState = {
         subject : '',
@@ -22,17 +24,29 @@ class Announcement extends React.Component<AnnouncementProps, AnnouncementState>
         toEmail:[],
         
     }
-
+    
     receivers = [
         {
-            student_id: "1",
-            email: "avish.rodrigo11@gmail.com",
+            "student_id": "1",
+            "email": "avish.rodrigo11@gmail.com",
         },
         {
-            student_id: "2",
-            email: "avishkachathuranga98@gmail.com",
+            "student_id": "2",
+            "email": "avishkachathuranga98@gmail.com",
         }
     ];
+    handleReceivers = async () => {
+        await fetch("http://localhost:8080/student/students",{
+            method: "POST",
+            headers:{"Content-Type": "application/json"},
+            
+        }).then((response)=>{
+            return response.json()
+        })
+    }
+    
+    // receivers = [this.handleReceivers];
+    // console.log(receivers);
 
     email : string [] = []
 
@@ -43,17 +57,12 @@ class Announcement extends React.Component<AnnouncementProps, AnnouncementState>
             // this.setState({toEmail:{'avish','sdfds'}})
             // const toEmailed = this.state.receiversemail;
             // this.setState({toEmail:})
-
             // this.setState({toEmail: this.state.receivers.map(a => a.email)})
-
-            
-
             // eslint-disable-next-line array-callback-return
             this.receivers.map((data)=>{
                 JSON.stringify(data.email);
                 this.state.toEmail.push(JSON.stringify(data.email))
                 // this.setState({toEmail:JSON.stringify(data.email)})
-                
                 // this.setState({toEmail:[...this.state.toEmail,JSON.stringify(data.email) ]})
             })
             console.log(this.state.toEmail)
@@ -63,7 +72,6 @@ class Announcement extends React.Component<AnnouncementProps, AnnouncementState>
                 "subject" : this.state.subject
             }
             
-    
             await fetch("http://localhost:8080/teacher/announcement",{
                 method: "POST",
                 headers:{"Content-Type": "application/json"},
