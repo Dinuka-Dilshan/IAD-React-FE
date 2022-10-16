@@ -53,17 +53,11 @@ class Announcement extends React.Component<AnnouncementProps, AnnouncementState>
     handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
         if (this.state.subject !== '' && this.state.bodyText){
-            // const announcement = {subject:this.state.subject,text:this.state.bodyText, toEmail:'sajee.thamanga@gmail.com'}
-            // this.setState({toEmail:{'avish','sdfds'}})
-            // const toEmailed = this.state.receiversemail;
-            // this.setState({toEmail:})
-            // this.setState({toEmail: this.state.receivers.map(a => a.email)})
-            // eslint-disable-next-line array-callback-return
+            
             this.receivers.map((data)=>{
                 JSON.stringify(data.email);
                 this.state.toEmail.push(JSON.stringify(data.email))
-                // this.setState({toEmail:JSON.stringify(data.email)})
-                // this.setState({toEmail:[...this.state.toEmail,JSON.stringify(data.email) ]})
+                
             })
             console.log(this.state.toEmail)
             const announcement = {
