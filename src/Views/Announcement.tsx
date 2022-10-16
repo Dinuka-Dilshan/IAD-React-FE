@@ -48,7 +48,7 @@ class Announcement extends React.Component<AnnouncementProps, AnnouncementState>
     // receivers = [this.handleReceivers];
     // console.log(receivers);
 
-    email : string [] = []
+    // email : string [] = []
 
     handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
