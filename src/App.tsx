@@ -1,6 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
-import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import Announcements from "./pages/Announcements";
 import AvailableCourses from "./pages/AvailableCourses";
 import Course from "./pages/Course";

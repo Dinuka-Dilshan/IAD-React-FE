@@ -1,3 +1,4 @@
+import { green, indigo } from "@mui/material/colors";
 import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
@@ -11,6 +12,8 @@ const theme = createTheme({
   typography: {
     fontFamily: "Poppins, sans-serif",
   },
+  spacing:4,
+
 });
 
 export default theme;
